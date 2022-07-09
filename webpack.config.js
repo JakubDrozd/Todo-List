@@ -1,4 +1,5 @@
 const path = require("path");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
@@ -10,6 +11,9 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       title: "TODOer",
+    }),
+    new MiniCssExtractPlugin({
+      filename: "[name].css",
     }),
   ],
   output: {
@@ -30,6 +34,10 @@ module.exports = {
       {
         test: /\.(woff|woff2|ptf|ttf|eot|otf)$/i,
         type: "asset/resource",
+      },
+      {
+        test: /\.css$/,
+        use: [{ loader: MiniCssExtractPlugin.loader }, "css-loader"],
       },
     ],
   },
