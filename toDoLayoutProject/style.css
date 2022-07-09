@@ -89,6 +89,9 @@ li {
 }
 
 .card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
   padding: 0.4rem;
   width: 100%;
   height: fit-content;
@@ -96,8 +99,9 @@ li {
   border-radius: 10px;
 }
 
-.card > .title {
+.title {
   font-weight: 600;
+  text-decoration: underline;
 }
 
 .card-main {
@@ -106,12 +110,27 @@ li {
   gap: 0.4rem;
 }
 
-.card > .desc {
-  display: none;
-}
-
 .info > h4 {
   color: rgb(128, 126, 126);
   padding: 0;
   text-decoration: underline;
+}
+
+.card:hover {
+  cursor: pointer;
+}
+
+.card:hover > .desc {
+  max-height: 200px;
+}
+
+.card > .desc {
+  padding: 0 30px 0 50px;
+  font-weight: 300;
+  color: #999;
+  max-height: 0;
+  transition: 1s;
+  overflow: hidden;
+  color: black;
+  font-style: italic;
 }
