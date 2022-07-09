@@ -1,6 +1,5 @@
 import "./style.css";
-import { toDo } from "../src/toDoCreate";
+import { toDo } from "./toDoClass";
+import { startPage } from "./startPage";
 
-const todo1 = new toDo("Cook", "Cook with parents", "29-08-2022", 4);
-
-console.log(todo1);
+window.onload = startPage;

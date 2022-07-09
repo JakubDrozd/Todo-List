@@ -1,3 +1,16 @@
 body {
-  background-color: red;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f8f8;
+  box-sizing: border-box;
+}
+
+.content {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.header {
+  background-color: #db4c3a;
+  color: #f8f8f8;
 }
