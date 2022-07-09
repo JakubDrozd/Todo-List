@@ -1,5 +1,44 @@
+import avatar from "../src/assets/img/avatar.png";
+
+const avatarImg = new Image();
+avatarImg.src = avatar;
+avatarImg.style.width = "1.6rem";
+avatarImg.style.height = "auto";
+avatarImg.style.borderRadius = "50%";
+
 export function startPage() {
   const body = document.querySelector("body");
+
+  //MODAL
+
+  const modalDiv = document.createElement("div");
+  modalDiv.classList.add("modal");
+  modalDiv.id = "modal";
+  body.appendChild(modalDiv);
+
+  const modalHeader = document.createElement("div");
+  modalHeader.classList.add("modal-header");
+  modalDiv.appendChild(modalHeader);
+
+  const titleModal = document.createElement("div");
+  titleModal.classList.add("title");
+  titleModal.innerHTML = `Example Modal`;
+  modalHeader.appendChild(titleModal);
+
+  const close = document.createElement("button");
+  close.dataset.closeButton = "close";
+  close.innerHTML = `&times`;
+  modalHeader.appendChild(close);
+
+  const modalBody = document.createElement("div");
+  modalBody.classList.add("modal-body");
+  modalBody.innerHTML = `sssssss`;
+  modalDiv.appendChild(modalBody);
+
+  const overlayDiv = document.createElement("div");
+  overlayDiv.id = "overlay";
+  body.appendChild(overlayDiv);
+
   const content = document.createElement("div");
   content.classList.add("content");
   body.appendChild(content);
@@ -7,10 +46,144 @@ export function startPage() {
   const header = document.createElement("div");
   header.classList.add("header");
   content.appendChild(header);
-  header.innerHTML = `Header`;
+
+  const leftContainer = document.createElement("div");
+  leftContainer.classList.add("left-container");
+  header.appendChild(leftContainer);
+
+  const menu = document.createElement("span");
+  menu.classList.add("material-symbols-outlined");
+  menu.innerHTML = ` menu `;
+  leftContainer.appendChild(menu);
+
+  const home = document.createElement("span");
+  home.classList.add("material-symbols-outlined");
+  home.innerHTML = ` home `;
+  leftContainer.appendChild(home);
+
+  const rightContainer = document.createElement("div");
+  rightContainer.classList.add("right-container");
+  header.appendChild(rightContainer);
+
+  const add = document.createElement("span");
+  add.classList.add("material-symbols-outlined");
+  add.innerHTML = `add`;
+  rightContainer.appendChild(add);
+  add.dataset.modalTarget = "#modal";
+  add.classList.add("add");
+
+  const help = document.createElement("span");
+  help.classList.add("material-symbols-outlined");
+  help.innerHTML = `help`;
+  rightContainer.appendChild(help);
+
+  const notif = document.createElement("span");
+  notif.classList.add("material-symbols-outlined");
+  notif.innerHTML = `notifications`;
+  rightContainer.appendChild(notif);
+
+  const avatar = document.createElement("div");
+  avatar.appendChild(avatarImg);
+  rightContainer.appendChild(avatar);
 
   const main = document.createElement("div");
   main.classList.add("main");
   content.appendChild(main);
-  main.innerHTML = `Main`;
+
+  const sidebar = document.createElement("div");
+  sidebar.classList.add("sidebar");
+  main.appendChild(sidebar);
+
+  const h4InSidebar = document.createElement("h4");
+  h4InSidebar.innerHTML = `Your Projects`;
+  sidebar.appendChild(h4InSidebar);
+
+  const ul = document.createElement("ul");
+  sidebar.appendChild(ul);
+
+  const p1 = document.createElement("li");
+  p1.innerHTML = `Project 1`;
+  ul.appendChild(p1);
+
+  const notes = document.createElement("div");
+  notes.classList.add("notes");
+  main.appendChild(notes);
+
+  const info = document.createElement("div");
+  info.classList.add("info");
+  notes.appendChild(info);
+
+  const h4InInfo = document.createElement("h4");
+  h4InInfo.innerHTML = `Hover on note to see its description`;
+  info.appendChild(h4InInfo);
+
+  const card = document.createElement("div");
+  card.classList.add("card");
+  notes.appendChild(card);
+
+  const cardMain = document.createElement("div");
+  cardMain.classList.add("card-main");
+  card.appendChild(cardMain);
+
+  const title = document.createElement("div");
+  title.classList.add("title");
+  title.innerHTML = `Cook with Mac`;
+  cardMain.appendChild(title);
+
+  const dueDate = document.createElement("div");
+  dueDate.classList.add("dueDate");
+  dueDate.innerHTML = `29-08-2022`;
+  cardMain.appendChild(dueDate);
+
+  const desc = document.createElement("div");
+  desc.classList.add("desc");
+  desc.innerHTML = `Cook with Mac to prepare for birthday party!`;
+  card.appendChild(desc);
+
+  const footer = document.createElement("div");
+  footer.classList.add("footer");
+  footer.innerHTML = `© 2022 Veanty`;
+  content.appendChild(footer);
+
+  // MODAL
+
+  const openModalButtons = document.querySelectorAll("[data-modal-target]");
+  const closeModalButtons = document.querySelectorAll("[data-close-button]");
+  const overlay = document.getElementById("overlay");
+
+  openModalButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const modal = document.querySelector(button.dataset.modalTarget);
+      openModal(modal);
+    });
+  });
+
+  overlay.addEventListener("click", () => {
+    const modals = document.querySelectorAll(".modal.active");
+    modals.forEach((modal) => {
+      closeModal(modal);
+    });
+  });
+
+  closeModalButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const modal = button.closest(".modal");
+      closeModal(modal);
+    });
+  });
+
+  function openModal(modal) {
+    if (modal === null) return;
+
+    modal.classList.add("active");
+    overlay.classList.add("active");
+  }
+
+  function closeModal(modal) {
+    if (modal === null) {
+      return;
+    }
+    modal.classList.remove("active");
+    overlay.classList.remove("active");
+  }
 }
