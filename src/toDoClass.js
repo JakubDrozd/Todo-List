@@ -1,5 +1,6 @@
 export const projectsArray = [];
 export const notesArray = [];
+import { createCard } from "../src/createCard";
 
 export class toDo {
   constructor(title, description, dueDate, priority) {
@@ -35,6 +36,18 @@ export function addNote() {
       newNotePrioValue
     );
     notesArray.push(newNote);
+    notesArray.sort(function (a, b) {
+      let keyA = new Date(a.dueDate),
+        keyB = new Date(b.dueDate);
+      if (keyA < keyB) return -1;
+      if (keyA > keyB) return 1;
+      return 0;
+    });
+    const notes = document.querySelector(".notes");
+    notes.replaceChildren();
+    notesArray.forEach(function (note) {
+      createCard(note.title, note.description, note.dueDate, note.priority);
+    });
     console.log(notesArray);
   }
 }

@@ -105,40 +105,21 @@ export function startPage() {
   p1.innerHTML = `Project 1`;
   ul.appendChild(p1);
 
-  const notes = document.createElement("div");
-  notes.classList.add("notes");
-  main.appendChild(notes);
+  const rightMain = document.createElement("div");
+  rightMain.classList.add("right-main");
+  main.appendChild(rightMain);
 
   const info = document.createElement("div");
   info.classList.add("info");
-  notes.appendChild(info);
+  rightMain.appendChild(info);
+
+  const notes = document.createElement("div");
+  notes.classList.add("notes");
+  rightMain.appendChild(notes);
 
   const h4InInfo = document.createElement("h4");
   h4InInfo.innerHTML = `Hover on note to see its description`;
   info.appendChild(h4InInfo);
-
-  const card = document.createElement("div");
-  card.classList.add("card");
-  notes.appendChild(card);
-
-  const cardMain = document.createElement("div");
-  cardMain.classList.add("card-main");
-  card.appendChild(cardMain);
-
-  const title = document.createElement("div");
-  title.classList.add("title");
-  title.innerHTML = `Cook with Mac`;
-  cardMain.appendChild(title);
-
-  const dueDate = document.createElement("div");
-  dueDate.classList.add("dueDate");
-  dueDate.innerHTML = `29-08-2022`;
-  cardMain.appendChild(dueDate);
-
-  const desc = document.createElement("div");
-  desc.classList.add("desc");
-  desc.innerHTML = `Cook with Mac to prepare for birthday party!`;
-  card.appendChild(desc);
 
   const footer = document.createElement("div");
   footer.classList.add("footer");
