@@ -1,4 +1,5 @@
 import avatar from "../src/assets/img/avatar.png";
+import { toDo, notesArray, projectsArray, addNote } from "../src/toDoClass.js";
 
 const avatarImg = new Image();
 avatarImg.src = avatar;
@@ -190,6 +191,9 @@ export function startPage() {
   form.action = "";
   form.method = "POST";
   form.id = "myForm";
+  form.onsubmit = function () {
+    return false;
+  };
   modalBody.appendChild(form);
 
   const field1 = document.createElement("div");
@@ -257,4 +261,10 @@ export function startPage() {
   prioInput.max = 10;
   prioInput.required = true;
   field4.appendChild(prioInput);
+
+  const addNoteButton = document.createElement("button");
+  addNoteButton.type = "submit";
+  addNoteButton.textContent = "Add note";
+  addNoteButton.addEventListener("click", addNote);
+  form.appendChild(addNoteButton);
 }
