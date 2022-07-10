@@ -22,7 +22,7 @@ export function startPage() {
 
   const titleModal = document.createElement("div");
   titleModal.classList.add("title");
-  titleModal.innerHTML = `Example Modal`;
+  titleModal.innerHTML = `Create new note`;
   modalHeader.appendChild(titleModal);
 
   const close = document.createElement("button");
@@ -32,7 +32,6 @@ export function startPage() {
 
   const modalBody = document.createElement("div");
   modalBody.classList.add("modal-body");
-  modalBody.innerHTML = `sssssss`;
   modalDiv.appendChild(modalBody);
 
   const overlayDiv = document.createElement("div");
@@ -186,4 +185,76 @@ export function startPage() {
     modal.classList.remove("active");
     overlay.classList.remove("active");
   }
+
+  const form = document.createElement("form");
+  form.action = "#";
+  form.method = "POST";
+  form.id = "myForm";
+  modalBody.appendChild(form);
+
+  const field1 = document.createElement("div");
+  field1.classList.add("field");
+  form.appendChild(field1);
+
+  const titleLabel = document.createElement("label");
+  titleLabel.setAttribute("for", "title");
+  titleLabel.innerHTML = "Note title";
+  field1.appendChild(titleLabel);
+
+  const titleInput = document.createElement("input");
+  titleInput.type = "text";
+  titleInput.name = "title";
+  titleInput.id = "title";
+  titleInput.required = true;
+  field1.appendChild(titleInput);
+
+  const field2 = document.createElement("div");
+  field2.classList.add("field");
+  form.appendChild(field2);
+
+  const dueDateLabel = document.createElement("label");
+  dueDateLabel.setAttribute("for", "dueDate");
+  dueDateLabel.innerHTML = "Due date";
+  field2.appendChild(dueDateLabel);
+
+  const dueDateInput = document.createElement("input");
+  dueDateInput.type = "date";
+  dueDateInput.name = "dueDate";
+  dueDateInput.id = "dueDate";
+  dueDateInput.required = true;
+  field2.appendChild(dueDateInput);
+
+  const field3 = document.createElement("div");
+  field3.classList.add("field");
+  form.appendChild(field3);
+
+  const descLabel = document.createElement("label");
+  descLabel.setAttribute("for", "desc");
+  descLabel.innerHTML = "Description";
+  field3.appendChild(descLabel);
+
+  const descInput = document.createElement("input");
+  descInput.type = "text";
+  descInput.name = "desc";
+  descInput.id = "desc";
+  descInput.required = true;
+  field3.appendChild(descInput);
+
+  const field4 = document.createElement("div");
+  field4.classList.add("field");
+  form.appendChild(field4);
+
+  const prioLabel = document.createElement("label");
+  prioLabel.setAttribute("for", "prio");
+  prioLabel.innerHTML = "Description";
+  field4.appendChild(prioLabel);
+
+  const prioInput = document.createElement("input");
+  prioInput.type = "number";
+  prioInput.name = "prio";
+  prioInput.id = "prio";
+  prioInput.min = 1;
+  prioInput.max = 10;
+  prioInput.required = true;
+  field4.appendChild(prioInput);
 }
