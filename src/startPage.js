@@ -187,7 +187,7 @@ export function startPage() {
   }
 
   const form = document.createElement("form");
-  form.action = "#";
+  form.action = "";
   form.method = "POST";
   form.id = "myForm";
   modalBody.appendChild(form);
@@ -246,7 +246,7 @@ export function startPage() {
 
   const prioLabel = document.createElement("label");
   prioLabel.setAttribute("for", "prio");
-  prioLabel.innerHTML = "Description";
+  prioLabel.innerHTML = "Priority";
   field4.appendChild(prioLabel);
 
   const prioInput = document.createElement("input");
