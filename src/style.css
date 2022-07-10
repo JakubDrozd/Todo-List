@@ -35,6 +35,17 @@ body {
   font-family: "roboto";
 }
 
+form {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1rem;
+}
+
+.field {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
 /* MODAL */
 *,
 *::after,
@@ -83,7 +94,10 @@ body {
 }
 
 .modal-body {
-  padding: 10px 15px;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #overlay {
