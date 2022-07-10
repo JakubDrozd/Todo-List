@@ -15,5 +15,5 @@ export function addNote() {
   const newDueDate = document.querySelector("#dueDate");
   const newNoteDesc = document.querySelector("#desc");
   const newNotePrio = document.querySelector("#prio");
-  console.log("works");
+  console.log(newNoteTitle, newDueDate, newNoteDesc, newNotePrio);
 }
