@@ -15,5 +15,26 @@ export function addNote() {
   const newDueDate = document.querySelector("#dueDate");
   const newNoteDesc = document.querySelector("#desc");
   const newNotePrio = document.querySelector("#prio");
-  console.log(newNoteTitle, newDueDate, newNoteDesc, newNotePrio);
+
+  let newNoteTitleValue = newNoteTitle.value;
+  let newDueDateValue = newDueDate.value;
+  let newNoteDescValue = newNoteDesc.value;
+  let newNotePrioValue = newNotePrio.value;
+
+  if (
+    (newNoteTitleValue === "") | (newDueDateValue === "") ||
+    (newNoteTitleValue === "") | (newNotePrioValue === "") ||
+    newNotePrioValue === ""
+  ) {
+    return;
+  } else {
+    const newNote = new toDo(
+      newNoteTitleValue,
+      newNoteDescValue,
+      newDueDateValue,
+      newNotePrioValue
+    );
+    notesArray.push(newNote);
+    console.log(notesArray);
+  }
 }
