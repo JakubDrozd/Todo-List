@@ -8,6 +8,7 @@ module.exports = {
     toDoClass: "./src/toDoClass.js",
     startPage: "./src/startPage.js",
     createCard: "./src/createCard.js",
+    utils: "./src/utils.js",
   },
   plugins: [
     new HtmlWebpackPlugin({
