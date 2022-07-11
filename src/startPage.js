@@ -1,5 +1,5 @@
 import avatar from "../src/assets/img/avatar.png";
-import { addNote } from "./utils";
+import { addNote, arraySort } from "./utils";
 import { notesArray } from "./toDoClass";
 import { createCard } from "./createCard";
 
@@ -250,6 +250,8 @@ export function startPage() {
   addNoteButton.textContent = "Add note";
   addNoteButton.addEventListener("click", addNote);
   form.appendChild(addNoteButton);
+
+  arraySort()
 
   window.addEventListener(
     "load",
