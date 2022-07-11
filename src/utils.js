@@ -5,6 +5,7 @@ import { createCard } from "./createCard";
 export const deleteNote = (e) => {
   const index = notesArray.findIndex((note) => note.title === e.target.value);
   notesArray.splice(index, 1);
+  localStorage.setItem("notesArray", JSON.stringify(notesArray));
   const parent = e.target.parentElement.parentElement.parentElement;
   parent.remove();
   console.log(notesArray);
@@ -35,6 +36,7 @@ export function addNote() {
       newNotePrioValue
     );
     notesArray.push(newNote);
+    localStorage.setItem("notesArray", JSON.stringify(notesArray));
     notesArray.sort(function (a, b) {
       let keyA = new Date(a.dueDate),
         keyB = new Date(b.dueDate);

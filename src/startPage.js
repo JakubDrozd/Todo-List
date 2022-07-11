@@ -1,6 +1,6 @@
 import avatar from "../src/assets/img/avatar.png";
 import { addNote } from "./utils";
-import { storedNotes } from "./toDoClass";
+import { notesArray } from "./toDoClass";
 import { createCard } from "./createCard";
 
 const avatarImg = new Image();
@@ -250,4 +250,11 @@ export function startPage() {
   addNoteButton.textContent = "Add note";
   addNoteButton.addEventListener("click", addNote);
   form.appendChild(addNoteButton);
+
+  window.addEventListener(
+    "load",
+    notesArray.forEach((note) =>
+      createCard(note.title, note.description, note.dueDate, note.priority)
+    )
+  );
 }

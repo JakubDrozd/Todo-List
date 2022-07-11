@@ -1,5 +1,5 @@
 export const projectsArray = [];
-export const notesArray = [];
+export let notesArray = JSON.parse(localStorage.getItem("notesArray") || "[]");
 
 export class toDo {
   constructor(title, description, dueDate, priority) {
