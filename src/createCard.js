@@ -1,4 +1,5 @@
-import { notesArray } from "../src/toDoClass";
+import { deleteNote } from "./utils";
+import { createCard } from "../src/createCard";
 
 export const createCard = (
   newNoteTitleValue,
@@ -31,18 +32,10 @@ export const createCard = (
   desc.innerHTML = newNoteDescValue;
   card.appendChild(desc);
 
-  const deleteButton = document.createElement("button");
-  card.appendChild(deleteButton);
+  const deleteButton = document.createElement("span");
+  title.appendChild(deleteButton);
   deleteButton.setAttribute("value", title);
-  deleteButton.classList.add("delete-button");
-  deleteButton.textContent = "Remove";
+  deleteButton.classList.add("delete-button", "material-symbols-outlined");
+  deleteButton.textContent = `close`;
   deleteButton.addEventListener("click", deleteNote);
-};
-
-export const deleteNote = (e) => {
-  const index = notesArray.findIndex((note) => note.title === e.target.value);
-  notesArray.splice(index, 1);
-  const parent = e.target.parentElement;
-  parent.remove();
-  console.log(notesArray);
 };

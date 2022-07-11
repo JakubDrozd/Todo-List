@@ -212,7 +212,9 @@ li {
 
 .title {
   font-weight: 600;
-  text-decoration: underline;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .card-main {

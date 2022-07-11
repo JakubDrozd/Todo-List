@@ -1,5 +1,5 @@
 import avatar from "../src/assets/img/avatar.png";
-import { toDo, notesArray, projectsArray, addNote } from "../src/toDoClass.js";
+import { addNote } from "./utils";
 
 const avatarImg = new Image();
 avatarImg.src = avatar;
