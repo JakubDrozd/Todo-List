@@ -1,4 +1,6 @@
 import { notesArray } from "./toDoClass";
+import { toDo } from "./toDoClass";
+import { createCard } from "./createCard";
 
 export const deleteNote = (e) => {
   const index = notesArray.findIndex((note) => note.title === e.target.value);

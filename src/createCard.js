@@ -1,5 +1,4 @@
 import { deleteNote } from "./utils";
-import { createCard } from "../src/createCard";
 
 export const createCard = (
   newNoteTitleValue,

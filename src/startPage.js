@@ -1,5 +1,7 @@
 import avatar from "../src/assets/img/avatar.png";
 import { addNote } from "./utils";
+import { storedNotes } from "./toDoClass";
+import { createCard } from "./createCard";
 
 const avatarImg = new Image();
 avatarImg.src = avatar;
