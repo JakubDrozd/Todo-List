@@ -1,5 +1,5 @@
 import avatar from "../src/assets/img/avatar.png";
-import { addNote, arraySort } from "./utils";
+import { addNote, arraySort, openModal, closeModal } from "./utils";
 import { notesArray } from "./toDoClass";
 import { createCard } from "./createCard";
 
@@ -28,9 +28,12 @@ export function startPage() {
   titleModal.innerHTML = `Create new note`;
   modalHeader.appendChild(titleModal);
 
-  const close = document.createElement("button");
+  const close = document.createElement("span");
   close.dataset.closeButton = "close";
-  close.innerHTML = `&times`;
+  close.classList.add("material-symbols-outlined");
+  close.innerHTML = `close`;
+  close.style.color = `red`;
+  close.style.fontWeight = `bold`;
   modalHeader.appendChild(close);
 
   const modalBody = document.createElement("div");
@@ -155,21 +158,6 @@ export function startPage() {
     });
   });
 
-  function openModal(modal) {
-    if (modal === null) return;
-
-    modal.classList.add("active");
-    overlay.classList.add("active");
-  }
-
-  function closeModal(modal) {
-    if (modal === null) {
-      return;
-    }
-    modal.classList.remove("active");
-    overlay.classList.remove("active");
-  }
-
   const form = document.createElement("form");
   form.action = "";
   form.method = "POST";
@@ -251,7 +239,7 @@ export function startPage() {
   addNoteButton.addEventListener("click", addNote);
   form.appendChild(addNoteButton);
 
-  arraySort()
+  arraySort();
 
   window.addEventListener(
     "load",
