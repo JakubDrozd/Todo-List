@@ -18,12 +18,13 @@ export const createCard = (
 
   const title = document.createElement("div");
   title.classList.add("title");
-  title.innerHTML = `${newNoteTitleValue} (${newNotePrioValue})`;
+  title.innerHTML = `${newNoteTitleValue}`;
   cardMain.appendChild(title);
 
   const dueDate = document.createElement("div");
   dueDate.classList.add("dueDate");
-  dueDate.innerHTML = newDueDateValue;
+  dueDate.style.color = `gray`;
+  dueDate.innerHTML = `Due to: ${newDueDateValue}`;
   cardMain.appendChild(dueDate);
 
   const desc = document.createElement("div");
