@@ -33,6 +33,7 @@ body {
   width: 100vw;
   height: 100vh;
   font-family: "roboto";
+  font-weight: normal;
 }
 
 form {
@@ -55,16 +56,16 @@ form {
 
 .modal {
   position: fixed;
-  top: 50%;
+  top: 30%;
   left: 50%;
   transform: translate(-50%, -50%) scale(0);
   transition: 200ms ease-in-out;
-  border: 1px solid black;
   border-radius: 10px;
   z-index: 10;
   background-color: white;
   width: 500px;
   max-width: 80%;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .modal.active {
@@ -76,7 +77,7 @@ form {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #ddd;
 }
 
 .modal-header > .title {
@@ -108,7 +109,7 @@ form {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.2);
   pointer-events: none;
 }
 
@@ -120,10 +121,24 @@ form {
 
 .header {
   display: flex;
-  background-color: #dc4d3d;
   color: #fff;
   justify-content: space-between;
   padding: 1rem;
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient 10s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .content {
@@ -208,10 +223,14 @@ li {
   height: fit-content;
   border: 1px solid #ddd;
   border-radius: 10px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.modal-header > span:hover {
+  cursor: pointer;
 }
 
 .title {
-  font-weight: 600;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -227,10 +246,15 @@ li {
   color: rgb(128, 126, 126);
   padding: 0;
   text-decoration: underline;
+  font-weight: normal;
+}
+
+.sidebar > h4 {
+  font-weight: normal;
 }
 
 .card:hover {
-  cursor: pointer;
+  cursor: normal;
 }
 
 .card:hover > .desc {
@@ -248,6 +272,11 @@ li {
   font-style: italic;
 }
 
+.add {
+  transition: all 0.2s ease-out;
+}
+
 .add:hover {
   cursor: pointer;
+  transform: scale(1.7);
 }
