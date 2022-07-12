@@ -1,4 +1,7 @@
 import { deleteNote } from "./utils";
+import { notesArray } from "./toDoClass";
+
+let i = 1;
 
 export const createCard = (
   newNoteTitleValue,
@@ -17,8 +20,11 @@ export const createCard = (
   card.appendChild(cardMain);
 
   const title = document.createElement("div");
+  title.contentEditable = `true`;
   title.classList.add("title");
-  title.innerHTML = `${newNoteTitleValue}`;
+  title.spellcheck = ``;
+  title.value = `${newNoteTitleValue}`;
+  title.innerHTML = `<span value='${newNoteTitleValue}'>${newNoteTitleValue}</span>`;
   cardMain.appendChild(title);
 
   const dueDate = document.createElement("div");
@@ -29,7 +35,7 @@ export const createCard = (
 
   const desc = document.createElement("div");
   desc.classList.add("desc");
-  desc.innerHTML = newNoteDescValue;
+  desc.innerHTML = `“${newNoteDescValue}„`;
   card.appendChild(desc);
 
   const deleteButton = document.createElement("span");
@@ -38,4 +44,11 @@ export const createCard = (
   deleteButton.classList.add("delete-button", "material-symbols-outlined");
   deleteButton.textContent = `close`;
   deleteButton.addEventListener("click", deleteNote);
+
+  const helper = document.createElement("div");
+  helper.classList.add("helper");
+  helper.appendChild(deleteButton);
+  title.appendChild(helper);
+
+  i++;
 };
