@@ -15,12 +15,16 @@ export const createCard = (
   card.classList.add("card");
   notes.appendChild(card);
 
+  card.addEventListener("click", function () {
+    this.classList.toggle("show")
+  });
+
   const cardMain = document.createElement("div");
   cardMain.classList.add("card-main");
   card.appendChild(cardMain);
 
   const title = document.createElement("div");
-  title.contentEditable = `true`;
+  title.contentEditable = `false`;
   title.classList.add("title");
   title.spellcheck = ``;
   title.value = `${newNoteTitleValue}`;

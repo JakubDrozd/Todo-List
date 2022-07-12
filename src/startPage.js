@@ -123,7 +123,7 @@ export function startPage() {
   rightMain.appendChild(notes);
 
   const h4InInfo = document.createElement("h4");
-  h4InInfo.innerHTML = `Hover on note to see its description`;
+  h4InInfo.innerHTML = `Click on note for details`;
   info.appendChild(h4InInfo);
 
   const footer = document.createElement("div");

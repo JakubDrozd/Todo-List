@@ -257,19 +257,19 @@ li {
   cursor: normal;
 }
 
-.card:hover > .desc {
-  max-height: 200px;
-}
-
 .card > .desc {
   padding: 0 30px 0 50px;
   font-weight: 300;
   color: #999;
   max-height: 0;
-  transition: 1s;
+  transition: all 0.2s ease-in-out;
   overflow: hidden;
   color: black;
   font-style: italic;
+}
+
+.card.show > .desc {
+  max-height: 200px;
 }
 
 .add {
