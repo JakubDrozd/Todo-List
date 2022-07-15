@@ -24,7 +24,7 @@ module.exports = {
     clean: true,
   },
   optimization: {
-    minimize: false,
+    minimize: true,
   },
   module: {
     rules: [
