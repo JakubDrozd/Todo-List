@@ -14,9 +14,10 @@ export const createCard = (
   const card = document.createElement("div");
   card.classList.add("card");
   notes.appendChild(card);
+  card.style.cursor = "pointer";
 
   card.addEventListener("click", function () {
-    this.classList.toggle("show")
+    this.classList.toggle("show");
   });
 
   const cardMain = document.createElement("div");
@@ -29,6 +30,7 @@ export const createCard = (
   title.spellcheck = ``;
   title.value = `${newNoteTitleValue}`;
   title.innerHTML = `<span value='${newNoteTitleValue}'>${newNoteTitleValue}</span>`;
+  title.style.textDecoration = "underline";
   cardMain.appendChild(title);
 
   const dueDate = document.createElement("div");
