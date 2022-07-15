@@ -1,6 +1,6 @@
 @font-face {
-  font-family: "roboto";
-  src: url(../src/assets/fonts/Roboto-Black.ttf);
+  font-family: "openSans";
+  src: url(https://fonts.googleapis.com/css2?family=Open+Sans&display=swap);
 }
 
 @font-face {
@@ -27,12 +27,13 @@
 }
 
 body {
+  font-size: 1em;
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   width: 100vw;
   height: 100vh;
-  font-family: "roboto";
+  font-family: "openSans";
   font-weight: normal;
 }
 
@@ -45,6 +46,10 @@ form {
 .field {
   display: flex;
   flex-flow: column nowrap;
+}
+
+.field input {
+  font-family: inherit;
 }
 
 /* MODAL */
