@@ -12,7 +12,7 @@ export const deleteNote = (e) => {
   console.log(notesArray);
 };
 
-export function addNote() {
+export const addNote = () => {
   const newNoteTitle = document.querySelector("#title");
   const newDueDate = document.querySelector("#dueDate");
   const newNoteDesc = document.querySelector("#desc");
@@ -47,7 +47,7 @@ export function addNote() {
     closeModal(modal);
     console.log(notesArray);
   }
-}
+};
 
 export const arraySort = () => {
   notesArray.sort(function (a, b) {
